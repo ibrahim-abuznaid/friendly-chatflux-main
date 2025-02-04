@@ -1,0 +1,12 @@
+{
+    "name": "your-backend",
+    "version": "1.0.0",
+    "type": "module",
+    "dependencies": {
+      "express": "^4.x",
+      "openai": "^x.x.x",
+      "cors": "^2.x",
+      "dotenv": "^x.x.x"
+    }
+  }
+  

@@ -4,21 +4,39 @@ import { Button } from "@/components/ui/button";
 import { ChatInput } from "@/components/ChatInput";
 import { ChatMessage } from "@/components/ChatMessage";
 import { getCurrentUser, logout } from "@/lib/auth";
-// import { Message, sendMessage } from "@/lib/openai";
-import { Message, sendMessage } from "@/lib/openai";
+import { sendMessage } from "@/lib/api";
+import { toast } from "@/components/ui/use-toast";
+
+export interface Message {
+  role: "user" | "assistant";
+  content: string;
+}
+
 export default function Chat() {
   const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handleSend = async (content: string) => {
+    if (!getCurrentUser()) {
+      toast({
+        title: "Error",
+        description: "No user found",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const userMessage: Message = { role: "user", content };
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
 
     try {
       const response = await sendMessage(content);
-      const assistantMessage: Message = { role: "assistant", content: response };
+      const assistantMessage: Message = { 
+        role: "assistant", 
+        content: response.reply 
+      };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Failed to send message:", error);

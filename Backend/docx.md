@@ -59,24 +59,79 @@ Roof systems, except for ancillary detached buildings, must be "class A, B, or C
 
 Fire-resistive construction is required for the following areas:
 
-| Area | Combustible Construction < 14 metres / 46 ft | Combustible Construction 14 metres / 46 ft > | Non-Combustible Construction < 30 metres / 98.4 ft | Non-Combustible Construction 30 metres / 98.4 ft > |
-|------|----------------------------------------------|----------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| All floors, load-bearing walls, columns, and beams | 1 - hour | 2 - hour | 1 - hour | 1 - hour |
-| Between guest rooms | 1 - hour | 1 - hour | 1 - hour * | 1 - hour * |
-| Between corridors and guest rooms | 1 - hour | 1 - hour | 1 - hour * | 1 - hour * |
-| Stairs and Elevator/Lift | 1 - hour | 2 - hours | 1 - hour | 2 - hours |
+[
+  {
+    "Area": "All floors, load-bearing walls, columns, and beams",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "2 - hour",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "1 - hour"
+  },
+  {
+    "Area": "Between guest rooms",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "1 - hour",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour *",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "1 - hour *"
+  },
+  {
+    "Area": "Between corridors and guest rooms",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "1 - hour",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour *",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "1 - hour *"
+  },
+  {
+    "Area": "Stairs and Elevator/Lift",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "2 - hours",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "2 - hours"
+  },
+  {
+    "Area": "Shafts & Risers - Gas / Electrical - Hazard",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "2 - hours",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "2 - hours"
+  },
+  {
+    "Area": "Shaft & Risers - Mech / Plumb - low Hazard",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "1 - hour",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "1 - hour"
+  },
+  {
+    "Area": "Flue enclosure** / Linen Chute / Trash Chute",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "2 - hours",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "2 - hours *"
+  },
+  {
+    "Area": "Mech / Plant Rooms containing gas-fired equipment",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "1 - hour",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "1 - hour"
+  },
+  {
+    "Area": "Laundry area perimeter",
+    "Combustible Construction (<14 metres / 46 ft)": "1 - hour",
+    "Combustible Construction (≥14 metres / 46 ft)": "1 - hour",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "1 - hour",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "1 - hour"
+  },
+  {
+    "Area": "Trash collection / Recyclable storage rooms",
+    "Combustible Construction (<14 metres / 46 ft)": "2 - hours *",
+    "Combustible Construction (≥14 metres / 46 ft)": "2 - hours",
+    "Non-Combustible Construction (<30 metres / 98.4 ft)": "2 - hours *",
+    "Non-Combustible Construction (≥30 metres / 98.4 ft)": "2 - hours *"
+  }
+]
 
-2500-239
----
-# 2500 - DESIGN, CONSTRUCTION & RENOVATION
-
-| Shafts & Risers - Gas / Electrical - Hazard | 1 - hour | 2 - hours | 1 - hour | 2 - hours |
-|-------------------------------------------|----------|-----------|----------|-----------|
-| Shaft & Risers - Mech / Plumb - low Hazard | 1 - hour | 1 - hour | 1 - hour | 1 - hour |
-| Flue enclosure** / Linen Chute / Trash Chute | 1 - hour | 2 - hours | 1 - hour | 2 - hours * |
-| Mech / Plant Rooms containing gas-fired equipment | 1 - hour | 1 - hour | 1 - hour | 1 - hour |
-| Laundry area perimeter | 1 - hour | 1 - hour | 1 - hour | 1 - hour |
-| Trash collection / Recyclable storage rooms | 2 - hours * | 2 - hours | 2 - hours * | 2 - hours * |
 
 \* The rating may be reduced by half when the building is protected throughout with automatic sprinklers, full evacuation sequence occurs upon alarm and where allowed by the local AHJ.
 
@@ -90,19 +145,69 @@ Doors in fire-resistive partitions must be self closing with the following ratin
 ---
 # 2500 - DESIGN, CONSTRUCTION & RENOVATION
 
-| Doors | Combustible Construction <14 metres/46 ft Sprinklered | Combustible Construction 14 metres/46 ft > Sprinklered | Non-Combustible Construction <30 metres/98.4 ft Sprinklered | Non-Combustible Construction 30 metres/98.4 ft > Sprinklered |
-|-------|--------------------------------------------------|---------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------|
-| One-Hour Fire Resistive Walls | 20 minute | 20 minute | 20 minute | 20 minute |
-| Two-Hour Fire-Resistive Walls | 60 minute | 60 minute | 60 minute | 60 minute |
-| Guestroom Entry Doors | 20 minute | 20 minute | 20 minute | 20 minute |
-| Elevator Doors | 30 minute | 60 minute | 30 minute | 60 minute |
+[
+  {
+    "Door Type": "One-Hour Fire Resistive Walls",
+    "Sprinklered": {
+      "Combustible <14m": "20 minute",
+      "Combustible ≥14m": "20 minute",
+      "Non-Combustible <30m": "20 minute",
+      "Non-Combustible ≥30m": "20 minute"
+    },
+    "Non-Sprinklered": {
+      "Combustible <14m": "30 minute",
+      "Combustible ≥14m": "30 minute",
+      "Non-Combustible <30m": "30 minute",
+      "Non-Combustible ≥30m": "30 minute"
+    }
+  },
+  {
+    "Door Type": "Two-Hour Fire-Resistive Walls",
+    "Sprinklered": {
+      "Combustible <14m": "60 minute",
+      "Combustible ≥14m": "60 minute",
+      "Non-Combustible <30m": "60 minute",
+      "Non-Combustible ≥30m": "60 minute"
+    },
+    "Non-Sprinklered": {
+      "Combustible <14m": "90 minute",
+      "Combustible ≥14m": "90 minute",
+      "Non-Combustible <30m": "60 minute",
+      "Non-Combustible ≥30m": "60 minute"
+    }
+  },
+  {
+    "Door Type": "Guestroom Entry Doors",
+    "Sprinklered": {
+      "Combustible <14m": "20 minute",
+      "Combustible ≥14m": "20 minute",
+      "Non-Combustible <30m": "20 minute",
+      "Non-Combustible ≥30m": "20 minute"
+    },
+    "Non-Sprinklered": {
+      "Combustible <14m": "30 minute",
+      "Combustible ≥14m": "30 minute",
+      "Non-Combustible <30m": "30 minute",
+      "Non-Combustible ≥30m": "30 minute"
+    }
+  },
+  {
+    "Door Type": "Elevator Doors",
+    "Sprinklered": {
+      "Combustible <14m": "30 minute",
+      "Combustible ≥14m": "60 minute",
+      "Non-Combustible <30m": "30 minute",
+      "Non-Combustible ≥30m": "60 minute"
+    },
+    "Non-Sprinklered": {
+      "Combustible <14m": "30 minute",
+      "Combustible ≥14m": "60 minute",
+      "Non-Combustible <30m": "30 minute",
+      "Non-Combustible ≥30m": "60 minute"
+    }
+  }
+]
 
-| Doors | Combustible Construction <14 metres/46 ft Non-Sprinklered | Combustible Construction 14 metres/46 ft > Non-Sprinklered | Non-Combustible Construction <30 metres/98.4 ft Non-Sprinklered | Non-Combustible Construction 30 metres/98.4 ft > Non-Sprinklered |
-|-------|------------------------------------------------------|-------------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------|
-| One-Hour Fire Resistive Walls | 30 minute | 30 minute | 30 minute | 30 minute |
-| Two-Hour Fire-Resistive Walls | 90 minute | 90 minute | 60 minute | 60 minute |
-| Guestroom Entry Doors | 30 minute | 30 minute | 30 minute | 30 minute |
-| Elevator Doors | 30 minute | 60 minute | 30 minute | 60 minute |
 
 ** Linen Linen chute discharge doors must be top-hinged with fusible link release and fire/smoke seals. The linen chute must have self-closing, self-locking doors. Doors must be interlocked unless the chute area is locked off from the public. Provide an 8'-0"/2.4 m minimum head height clearance above the finished floor.
 
@@ -510,32 +615,166 @@ NFPA 96 for Ventilation Control and Fire Protection for Commercial Cooking Opera
 2500-251
 ---
 # 2500 - DESIGN, CONSTRUCTION & RENOVATION
+A example of system operational matrix for all components, specific to the property and systems related to fire and/or emergency incidences.
 
-| Output (across) Input (down) | Audible Signal In Guest Room | Visible Signal In Guest Room | Alarm Receipt At Control Panel | Receipt At System Printer | Alarm Receipt At Central Control Station | Trouble Signal Receipt At Control Panel | Supervisory Signal Receipt At Control Panel | Audible/ Visible Signal At Fire Area | Activate Smoke Mode In Fire Area | Release Door Holders In Fire Area | Elevator Recall | Music/ Enter-tainment Shut Down |
-|------------------------------|------------------------------|-----------------------------|---------------------------------|---------------------------|------------------------------------------|----------------------------------------|---------------------------------------------|--------------------------------------|----------------------------------|-----------------------------------|-----------------|----------------------------------|
-| Single Station Guest Room Smoke Alarm | X |  |  |  |  |  |  |  |  |  |  |  |
-| Accessible Guest Room Smoke Detector | X | X |  |  |  |  |  |  |  |  |  |  |
-| Guestroom System Smoke Detector | X |  |  | X |  |  | X |  |  |  |  |  |
-| Area System Smoke Detector |  |  | X | X | X |  |  | X | X | X |  | X |
-| Elevator Lobby Smoke Detector |  |  | X | X | X |  |  |  | X | X | X |  |
-| Duct Type Smoke Detector |  |  |  |  |  | X |  | X |  |  |  |  |
-| Heat Detector |  |  | X | X | X |  |  | X | X | X |  |  |
-| Water Flow Switch |  |  | X | X | X |  |  | X | X | X |  | X |
-| Manual Fire Alarm Station |  |  | X | X | X |  |  | X |  | X |  | X |
-| Special Suppression Systems |  |  | X | X | X |  |  | X | X | X |  | X |
-| Valve Supervisory Switch |  |  |  | X | X |  | X |  |  |  |  |  |
+## Fire System Trigger Mappings
 
-2500-252
----
-# 2500 - DESIGN, CONSTRUCTION & RENOVATION
+### Single Station Guest Room Smoke Alarm
 
-| Output (across) Input (down) | Audible Signal In Guest Room | Visible Signal In Guest Room | Alarm Receipt At Control Panel | Receipt At System Printer | Alarm Receipt At Central Control Station | Trouble Signal Receipt At Control Panel | Supervisory Signal Receipt At Control Panel | Audible/ Visible Signal At Fire Area | Activate Smoke Mode In Fire Area | Release Door Holders In Fire Area | Elevator Recall | Music/ Enter- tainment Shut Down |
-|------------------------------|------------------------------|-----------------------------|---------------------------------|---------------------------|----------------------------------------|----------------------------------------|--------------------------------------------|------------------------------------|----------------------------------|----------------------------------|-----------------|--------------------------------|
-| Fire Pump Signals            |                              |                             |                X                |                           |                                        |                 X                      |                   X                        |                                    |                                  |                                  |               |                                |
-| System Trouble               |                              |                             |                X                |            X              |                 X                      |                                        |                                            |                                    |                                  |                                  |               |                                |
-| Emergency Generator Signals  |                              |                             |                X                |                           |                                        |                 X                      |                   X                        |                                    |                                  |                                  |               |                                |
-| CO Detection                 |                              |                             |                X                |            X              |                                        |                                        |                   X                        |                                    |                                  |                                  |               |                                |
-| CO Detection (Guestroom)     |              X               |             X               |                                 |                           |                                        |                                        |                                            |                                    |                                  |                                  |               |                                |
+Triggers:
+
+
+Audible Signal in Guest Room
+Accessible Guest Room Smoke Detector
+Triggers:
+
+Audible Signal in Guest Room
+Visible Signal in Guest Room
+
+### Guestroom System Smoke Detector
+
+Triggers:
+
+
+Audible Signal in Guest Room
+Receipt at System Printer
+Supervisory Signal Receipt at Control Panel
+
+### Area System Smoke Detector
+
+Triggers:
+
+
+Alarm Receipt at Control Panel
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Audible/Visible Signal at Fire Area
+Activate Smoke Mode in Fire Area
+Release Door Holders in Fire Area
+Music/Entertainment Shut Down
+
+### Elevator Lobby Smoke Detector
+
+Triggers:
+
+
+Alarm Receipt at Control Panel
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Activate Smoke Mode in Fire Area
+Release Door Holders in Fire Area
+Elevator Recall
+
+### Duct Type Smoke Detector
+
+Triggers:
+
+
+Supervisory Signal Receipt at Control Panel
+Activate Smoke Mode in Fire Area
+
+### Heat Detector
+
+Triggers:
+
+
+Alarm Receipt at Control Panel
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Audible/Visible Signal at Fire Area
+Activate Smoke Mode in Fire Area
+Release Door Holders in Fire Area
+
+### Water Flow Switch
+
+Triggers:
+
+
+Alarm Receipt at Control Panel
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Audible/Visible Signal at Fire Area
+Activate Smoke Mode in Fire Area
+Release Door Holders in Fire Area
+Music/Entertainment Shut Down
+
+### Manual Fire Alarm Station
+
+Triggers:
+
+
+Alarm Receipt at Control Panel
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Audible/Visible Signal at Fire Area
+Activate Smoke Mode in Fire Area
+Release Door Holders in Fire Area
+Music/Entertainment Shut Down
+
+### Special Suppression Systems
+
+Triggers:
+
+
+Alarm Receipt at Control Panel
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Audible/Visible Signal at Fire Area
+Activate Smoke Mode in Fire Area
+Release Door Holders in Fire Area
+Music/Entertainment Shut Down
+
+### Valve Supervisory Switch
+
+Triggers:
+
+
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Supervisory Signal Receipt at Control Panel
+
+### Fire Pump Signals
+
+Triggers:
+
+
+Receipt at System Printer
+Trouble Signal Receipt at Control Panel
+Supervisory Signal Receipt at Control Panel
+
+### System Trouble
+
+Triggers:
+
+
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Trouble Signal Receipt at Control Panel
+
+### Emergency Generator Signals
+
+Triggers:
+
+
+Receipt at System Printer
+Trouble Signal Receipt at Control Panel
+Supervisory Signal Receipt at Control Panel
+
+### CO Detection
+
+Triggers:
+
+
+Receipt at System Printer
+Alarm Receipt at Central Control Station
+Supervisory Signal Receipt at Control Panel
+
+### CO Detection (Guestroom)
+
+Triggers:
+
+Audible Signal in Guest Room
+Visible Signal in Guest Room
 
 ## 2516.04.F Installation
 
@@ -597,19 +836,64 @@ NFPA 96 for Ventilation Control and Fire Protection for Commercial Cooking Opera
 
 ### 2516.05.A.2 Occupant loads, for calculating egress width, must be calculated using the following:
 
-| Use | ft² / person | m² / person |
-|-----|--------------|-------------|
-| Assembly – no fixed seating, concentrated (chairs only) | 7 net | 0.65 net |
-| Assembly – No fixed seats, less concentrated (tables and chairs – such as restaurants) | 15 net | 1.4 net |
-| Assembly – Pre-function area | 5 | 0.47 |
-| Kitchens | 100 | 9.3 |
-| Swimming Pools | 50 | 4.6 |
-| Swimming pool deck areas | 30 | 2.8 |
-| Hotel Guest room areas | 200 | 18.6 |
-| Storage/Mechanical | 500 | 46.5 |
-| The Market/Grab n Go | 30 | 2.8 |
-| Fitness Center with equipment | 50 | 4.6 |
-| Back of House Offices | 100 | 9.3 |
+[
+  {
+    "Use": "Assembly – no fixed seating, concentrated (chairs only)",
+    "ft²_per_person": "7 net",
+    "m²_per_person": "0.65 net"
+  },
+  {
+    "Use": "Assembly – No fixed seats, less concentrated (tables and chairs – such as restaurants)",
+    "ft²_per_person": "15 net",
+    "m²_per_person": "1.4 net"
+  },
+  {
+    "Use": "Assembly – Pre-function area",
+    "ft²_per_person": "5",
+    "m²_per_person": "0.47"
+  },
+  {
+    "Use": "Kitchens",
+    "ft²_per_person": "100",
+    "m²_per_person": "9.3"
+  },
+  {
+    "Use": "Swimming Pools",
+    "ft²_per_person": "50",
+    "m²_per_person": "4.6"
+  },
+  {
+    "Use": "Swimming pool deck areas",
+    "ft²_per_person": "30",
+    "m²_per_person": "2.8"
+  },
+  {
+    "Use": "Hotel Guest room areas",
+    "ft²_per_person": "200",
+    "m²_per_person": "18.6"
+  },
+  {
+    "Use": "Storage/Mechanical",
+    "ft²_per_person": "500",
+    "m²_per_person": "46.5"
+  },
+  {
+    "Use": "The Market/Grab n Go",
+    "ft²_per_person": "30",
+    "m²_per_person": "2.8"
+  },
+  {
+    "Use": "Fitness Center with equipment",
+    "ft²_per_person": "50",
+    "m²_per_person": "4.6"
+  },
+  {
+    "Use": "Back of House Offices",
+    "ft²_per_person": "100",
+    "m²_per_person": "9.3"
+  }
+]
+
 
 ### 2516.05.A.3 Occupant load calculations in assembly areas must be based on the higher of either the pre-function or assembly area loads.
 
@@ -622,12 +906,28 @@ NFPA 96 for Ventilation Control and Fire Protection for Commercial Cooking Opera
 ### 2516.05.A.5
 Travel distances must comply with the following or provide a timed egress analysis, by a professional Fire Life Safety Consultant as an alternative:
 
-| Travel Distance Requirements | With Sprinklers | Without Sprinklers |
-|------------------------------|-----------------|---------------------|
-| Travel distance from a guestroom door to an exit | 200 ft/61 m | 150 ft/46 m |
-| Travel distance to an exit for all other areas | 250 ft/76 m | 200 ft/61 m |
-| Common path of travel to an exit | 100 ft/30 m | 75 ft/23 m |
-| Maximum dead-end corridors | 65 ft/20 m | 50 ft/15 m |
+[
+  {
+    "Travel Distance Requirement": "Travel distance from a guestroom door to an exit",
+    "With Sprinklers": "200 ft/61 m",
+    "Without Sprinklers": "150 ft/46 m"
+  },
+  {
+    "Travel Distance Requirement": "Travel distance to an exit for all other areas",
+    "With Sprinklers": "250 ft/76 m",
+    "Without Sprinklers": "200 ft/61 m"
+  },
+  {
+    "Travel Distance Requirement": "Common path of travel to an exit",
+    "With Sprinklers": "100 ft/30 m",
+    "Without Sprinklers": "75 ft/23 m"
+  },
+  {
+    "Travel Distance Requirement": "Maximum dead-end corridors",
+    "With Sprinklers": "65 ft/20 m",
+    "Without Sprinklers": "50 ft/15 m"
+  }
+]
 
 2500-255
 ---
@@ -1111,21 +1411,22 @@ The provisioning of Wireless Internet (Wi-Fi) services in the Hilton portfolio o
 
 2518.08.A.2 The Cat6 cables used must adhere to the following color code:
 
-| Main & Remote Computer Rooms | Color |
-|------------------------------|-------|
-| Voice & Fax Lines | Light Blue |
-| Server Connections | Red |
-| Point of Sale | Black |
-| Printers | Green |
-| Guest Internet (incl Wireless Access Points) | Purple |
-| Guest Minibar System | Orange |
-| TV System | Yellow |
-| Keycard System | White |
-| Interfaces | Pink |
-| Wireless Access Points (DECT, Hilton) | Brown |
-| Electronic Meeting Signs | Light Grey |
-| Cross-over Cables | Dark Blue |
-| Desktops | Dark Grey |
+[
+  {"Item": "Voice & Fax Lines", "Color": "Light Blue"},
+  {"Item": "Server Connections", "Color": "Red"},
+  {"Item": "Point of Sale", "Color": "Black"},
+  {"Item": "Printers", "Color": "Green"},
+  {"Item": "Guest Internet (incl Wireless Access Points)", "Color": "Purple"},
+  {"Item": "Guest Minibar System", "Color": "Orange"},
+  {"Item": "TV System", "Color": "Yellow"},
+  {"Item": "Keycard System", "Color": "White"},
+  {"Item": "Interfaces", "Color": "Pink"},
+  {"Item": "Wireless Access Points (DECT, Hilton)", "Color": "Brown"},
+  {"Item": "Electronic Meeting Signs", "Color": "Light Grey"},
+  {"Item": "Cross-over Cables", "Color": "Dark Blue"},
+  {"Item": "Desktops", "Color": "Dark Grey"}
+]
+
 
 2518.08.B Patch Lead Standards - Devices
 2518.08.B.1 All patch leads connecting devices to the network Cat6 sockets, i.e. desktop PCs, laptops, printers, etc must be grey.

@@ -8,4 +8,5 @@ chromadb
 langsmith
 flask
 flask-cors
-gunicorn 
+gunicorn
+faiss-cpu 

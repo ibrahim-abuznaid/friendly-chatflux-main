@@ -5,16 +5,18 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langsmith import traceable
-from langsmith.wrappers import wrap_openai
-import openai
-from langchain_core.documents import Document
-import re  # Add this import at the top with other imports
-import argparse  # Add this import at the top
+import re
+import argparse
+import google.generativeai as genai
+import absl.logging
+
+# Add this near the top of the file, after imports
+absl.logging.set_verbosity(absl.logging.ERROR)  # Suppress gRPC warnings
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -23,21 +25,23 @@ CORS(app)
 # Load environment variables
 load_dotenv()
 
+# Initialize Google AI
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
 # Set up LangSmith environment variables
 os.environ["LANGSMITH_TRACING"] = "true"
 
-# Create OpenAI client
-openai_client = wrap_openai(openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY")))
-
 # Setup Components
-llm = ChatOpenAI(
-    model="gpt-4o", 
-    openai_api_key=os.getenv("OPENAI_API_KEY")
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-pro-exp-02-05",
+    google_api_key=os.getenv("GOOGLE_API_KEY"),
+    temperature=0.7
 )
 
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-large",
-    openai_api_key=os.getenv("OPENAI_API_KEY")
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+    google_api_key=os.getenv("GOOGLE_API_KEY"),
+    task_type="retrieval_query"
 )
 
 # Query Translation Step
@@ -45,11 +49,29 @@ embeddings = OpenAIEmbeddings(
 def translate_query(query):
     """Translate or refine the query with LangSmith tracing"""
     translation_prompt = ChatPromptTemplate.from_template(
-        """Rewrite the following query to make it more clear and specific for a search: {query}"""
+        """You are an intelligent assistant within a Retrieval-Augmented Generation (RAG) pipeline. 
+        Your task is to refine and, if needed, translate a user's query to enhance clarity, correctness, 
+        and retrieval effectiveness. Follow these instructions:
+
+        1. **Clarification & Refinement:**  
+           - Rephrase ambiguous or unclear parts of the query for improved clarity.
+           - Correct any grammatical errors or informal language.
+
+        2. **Translation:**  
+           - If the query is not in English, translate it accurately into English.
+
+        3. **Preservation of Intent:**  
+           - Ensure that the refined query maintains the original intent and key details of the user's request.
+
+        4. **Output:**  
+           - Provide only the refined (and translated, if necessary) version of the query.
+
+        User Query: {query}"""
     )
     translation_chain = translation_prompt | llm
     translated_query = translation_chain.invoke({"query": query}).content
     return translated_query
+
 
 # Document Preparation
 @traceable(name="document_preparation")
@@ -61,19 +83,16 @@ def prepare_documents(documents):
     )
     
     processed_docs = []
-    last_seen_page_number = None  # Keep track of the last assigned page number
+    last_seen_page_number = None
     for doc_idx, doc in enumerate(documents):
         splits = text_splitter.split_documents([doc])
         
         for chunk_idx, split_doc in enumerate(splits):
-            # Extract page number using regex - looking for the explicit markdown page marker
             page_match = re.search(r'2500-(\d+)\n---', split_doc.page_content)
             if page_match:
-                # Convert the captured number to an integer and update last_seen_page_number
                 page_number = int(page_match.group(1))
                 last_seen_page_number = page_number
             else:
-                # If no page number is found, use previous number +1 or default to 1 if none exists
                 if last_seen_page_number is not None:
                     page_number = last_seen_page_number + 1
                     last_seen_page_number = page_number
@@ -128,21 +147,22 @@ def create_rag_chain(vectorstore):
     )
     
     rag_prompt = ChatPromptTemplate.from_template(
-        """You are an expert assistant specializing in building codes and regulations. Your task is to provide accurate, clear answers based solely on the provided context.
+        """You are an expert assistant specializing in hotel brand standards. Your task is to provide accurate, clear answers based solely on the provided context from the brand standards document.
 
-        Guidelines for your response:
-        1. Base your answer ONLY on the information present in the context
-        2. For each specific requirement or regulation you mention, cite the page number (2500-xxx) in parentheses at the end of that statement
-        3. Only include page numbers that are explicitly marked in the text (following the format "2500-xxx---")
-        4. If a section doesn't have an explicit page marker, don't cite a page number for that information
-        5. Present information in a clear, organized manner
-        6. If the context doesn't contain enough information to fully answer the question, acknowledge this
+Guidelines for your response:
+1. Base your answer ONLY on the information present in the provided excerpt.
+2. For each specific requirement, guideline, or detail you mention, append the page number in parentheses (e.g., "Page 45") exactly as it appears in the text.
+3. Only include page numbers that are explicitly provided in the excerpt.
+4. If a section does not have an explicit page marker, do not include a page number for that information.
+5. Present your answer in one or two concise sentences.
+6. If the context does not contain enough information to fully answer the question, clearly acknowledge this.
 
-        Context: {context}
+Context: {context}
 
-        Question: {question}
+Question: {question}
 
-        Please provide your detailed response following the guidelines above:
+Please provide your detailed response following the guidelines above:
+
         """
     )
     
@@ -223,7 +243,7 @@ def send_message():
 def health_check():
     return jsonify({"status": "healthy"}), 200
 
-# Add these functions to help persist and load the vector store
+# Vector store persistence functions
 def save_vectorstore(vectorstore, path="faiss_index"):
     """Save the FAISS index to disk"""
     vectorstore.save_local(path)
@@ -258,4 +278,4 @@ if __name__ == "__main__":
     else:
         # Run as web server if no query provided
         port = int(os.getenv("PORT", 3001))
-        app.run(host="0.0.0.0", port=port, debug=True) 
+        app.run(host="0.0.0.0", port=port, debug=True)

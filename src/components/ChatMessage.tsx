@@ -1,5 +1,6 @@
 import { Message } from "@/lib/openai";
 import { cn } from "@/lib/utils";
+import ReactMarkdown from 'react-markdown';
 
 interface ChatMessageProps {
   message: Message;
@@ -23,7 +24,7 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
             : "bg-secondary text-secondary-foreground"
         )}
       >
-        {message.content}
+        <ReactMarkdown>{message.content}</ReactMarkdown>
       </div>
     </div>
   );

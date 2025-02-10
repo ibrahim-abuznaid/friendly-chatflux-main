@@ -3,6 +3,7 @@ import { toast } from "@/components/ui/use-toast";
 export interface User {
   id: string;
   email: string;
+  currentConversationId?: string;
 }
 
 // Simulated user storage (replace with actual backend later)
@@ -33,6 +34,7 @@ export const signup = async (email: string, password: string): Promise<User | nu
   const user: User = {
     id: Math.random().toString(36).substr(2, 9),
     email,
+    currentConversationId: undefined,
   };
   users.push(user);
   localStorage.setItem("user", JSON.stringify(user));
@@ -60,4 +62,17 @@ export const logout = () => {
 export const getCurrentUser = (): User | null => {
   const userStr = localStorage.getItem("user");
   return userStr ? JSON.parse(userStr) : null;
+};
+
+export const updateUserConversation = (userId: string, conversationId: string): void => {
+  const user = users.find(u => u.id === userId);
+  if (user) {
+    user.currentConversationId = conversationId;
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+};
+
+export const getCurrentConversation = (): string | undefined => {
+  const user = getCurrentUser();
+  return user?.currentConversationId;
 };
